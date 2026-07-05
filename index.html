@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>sitiosbo — Sitios web para negocios en Bolivia</title>
+<meta name="description" content="Landing pages profesionales para negocios en Bolivia, con hosting incluido sin costo. Entrega rápida.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0F1B2D;
+    --surface: #16273D;
+    --surface-2: #1D3350;
+    --amber: #E8A33D;
+    --teal: #4FB3A9;
+    --ink: #F2EEE6;
+    --ink-dim: #B9C3D1;
+    --line: rgba(242,238,230,0.12);
+  }
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html{ scroll-behavior: smooth; }
+  body{
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  h1,h2,h3{
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  a{ color: inherit; text-decoration: none; }
+  .wrap{ max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* NAV */
+  nav{
+    position: sticky; top:0; z-index: 50;
+    background: rgba(15,27,45,0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap{ display:flex; align-items:center; justify-content:space-between; height:64px; }
+  .logo{ font-family:'Fraunces', serif; font-size:1.25rem; font-weight:600; }
+  .logo span{ color: var(--amber); }
+  .nav-cta{
+    background: var(--amber); color:#1a1305; padding:8px 18px;
+    border-radius:100px; font-weight:600; font-size:0.9rem;
+  }
+
+  /* HERO */
+  .hero{
+    position: relative;
+    padding: 90px 0 60px;
+    overflow: hidden;
+  }
+  .hero-inner{ position: relative; z-index: 2; max-width: 640px; }
+  .eyebrow{
+    color: var(--teal); font-weight:600; font-size:0.85rem;
+    letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 18px;
+    display:block;
+  }
+  .hero h1{ font-size: clamp(2.2rem, 5vw, 3.4rem); margin-bottom: 20px; }
+  .hero h1 em{ font-style: normal; color: var(--amber); }
+  .hero p.lead{ font-size: 1.15rem; color: var(--ink-dim); margin-bottom: 32px; max-width: 520px; }
+  .cta-row{ display:flex; gap:14px; flex-wrap:wrap; }
+  .btn-primary{
+    background: var(--amber); color:#1a1305; padding:14px 28px;
+    border-radius:100px; font-weight:700; font-size:1rem;
+    box-shadow: 0 8px 24px -8px rgba(232,163,61,0.5);
+  }
+  .btn-secondary{
+    border: 1px solid var(--line); padding:14px 28px;
+    border-radius:100px; font-weight:600; font-size:1rem; color: var(--ink);
+  }
+
+  /* mountain silhouette */
+  .mountains{
+    position:absolute; bottom:-2px; left:0; width:100%; z-index:1;
+    opacity: 0.9;
+  }
+
+  /* PROBLEM */
+  .section{ padding: 70px 0; border-top: 1px solid var(--line); }
+  .section-label{
+    color: var(--amber); font-weight:600; font-size:0.85rem;
+    letter-spacing:0.08em; text-transform:uppercase; margin-bottom:14px; display:block;
+  }
+  .section h2{ font-size: clamp(1.6rem, 3.5vw, 2.2rem); max-width: 620px; margin-bottom: 16px; }
+  .section p.intro{ color: var(--ink-dim); max-width: 560px; margin-bottom: 40px; }
+
+  .problem-grid{ display:grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
+  .problem-card{
+    background: var(--surface); border:1px solid var(--line);
+    border-radius: 16px; padding: 24px;
+  }
+  .problem-card .tag{ font-size:0.78rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; }
+  .problem-card.bad .tag{ color:#E88E7D; }
+  .problem-card.good .tag{ color: var(--teal); }
+  .problem-card p{ color: var(--ink-dim); margin-top:10px; font-size:0.95rem; }
+
+  /* FEATURES */
+  .features{ display:grid; grid-template-columns: repeat(3,1fr); gap:20px; }
+  .feature{ padding: 8px 0; }
+  .feature .num{ font-family:'Fraunces',serif; color: var(--amber); font-size:1.5rem; display:block; margin-bottom:10px; }
+  .feature h3{ font-size:1.05rem; margin-bottom:8px; }
+  .feature p{ color: var(--ink-dim); font-size:0.92rem; }
+
+  /* PRICING */
+  .pricing-grid{ display:grid; grid-template-columns: repeat(2,1fr); gap:20px; }
+  .price-card{
+    background: var(--surface); border:1px solid var(--line); border-radius:18px;
+    padding: 30px; display:flex; flex-direction:column;
+  }
+  .price-card.featured{ border-color: var(--amber); background: var(--surface-2); }
+  .price-card h3{ font-size:1.2rem; margin-bottom:6px; }
+  .price-card .price{ font-family:'Fraunces',serif; font-size:2.1rem; color:var(--amber); margin: 12px 0; }
+  .price-card .price small{ font-size:0.9rem; color: var(--ink-dim); font-family:'Inter',sans-serif; }
+  .price-card ul{ list-style:none; margin: 14px 0 24px; flex-grow:1; }
+  .price-card li{ color: var(--ink-dim); font-size:0.92rem; padding:6px 0; border-bottom:1px solid var(--line); }
+  .price-card li:last-child{ border-bottom:none; }
+
+  /* CONTACT */
+  .contact{ text-align:center; padding: 90px 0; }
+  .contact h2{ font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom:16px; }
+  .contact p{ color: var(--ink-dim); max-width:480px; margin: 0 auto 32px; }
+
+  footer{ border-top:1px solid var(--line); padding: 28px 0; text-align:center; color: var(--ink-dim); font-size:0.85rem; }
+
+  @media (max-width: 720px){
+    .problem-grid, .features, .pricing-grid{ grid-template-columns: 1fr; }
+    .hero{ padding: 60px 0 40px; }
+  }
+
+  a:focus-visible, button:focus-visible{ outline: 2px solid var(--teal); outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">sitios<span>bo</span></div>
+    <a href="#contacto" class="nav-cta">Pedir mi página</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <span class="eyebrow">Sitios web para negocios en Bolivia</span>
+    <h1>Tu negocio merece una página que <em>sí funcione</em></h1>
+    <p class="lead">Diseño, construyo y alojo tu página web — sin que tengas que pagar dominio ni hosting. Lista en pocos días, hecha para que la gente te encuentre y te contacte.</p>
+    <div class="cta-row">
+      <a href="#contacto" class="btn-primary">Quiero mi página</a>
+      <a href="#planes" class="btn-secondary">Ver planes</a>
+    </div>
+  </div>
+  <svg class="mountains" viewBox="0 0 1200 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="0,200 0,140 180,60 320,120 480,40 620,110 760,55 900,130 1050,70 1200,120 1200,200" fill="#16273D"/>
+    <polygon points="0,200 0,170 220,100 400,150 600,90 800,145 1000,100 1200,150 1200,200" fill="#1D3350" opacity="0.7"/>
+  </svg>
+</header>
+
+<section class="section">
+  <div class="wrap">
+    <span class="section-label">El problema</span>
+    <h2>La mayoría de negocios en Bolivia no tienen una página real, o la que tienen ya no funciona</h2>
+    <p class="intro">Muchos pagaron una página hace tiempo y dejaron de renovar el dominio o el hosting. Hoy esa inversión está caída — invisible para cualquiera que busque el negocio en internet.</p>
+    <div class="problem-grid">
+      <div class="problem-card bad">
+        <span class="tag">Situación actual</span>
+        <p>Sin página, o con una que ya no carga porque nadie pagó el hosting a tiempo. Cero presencia cuando alguien busca el negocio en Google.</p>
+      </div>
+      <div class="problem-card good">
+        <span class="tag">Con sitiosbo</span>
+        <p>Página profesional, alojada por mí sin costo recurrente para ti. Simplemente funciona, todos los días, sin que tengas que administrar nada técnico.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <span class="section-label">Cómo funciona</span>
+    <h2>Simple, rápido, sin dolores de cabeza técnicos</h2>
+    <div class="features">
+      <div class="feature">
+        <span class="num">1</span>
+        <h3>Cuéntame de tu negocio</h3>
+        <p>Una llamada corta o mensajes por WhatsApp: qué haces, tus horarios, fotos si tienes.</p>
+      </div>
+      <div class="feature">
+        <span class="num">2</span>
+        <h3>Yo diseño y construyo</h3>
+        <p>Landing profesional, adaptada a celular, con tu información y forma de contacto.</p>
+      </div>
+      <div class="feature">
+        <span class="num">3</span>
+        <h3>Queda publicada</h3>
+        <p>Alojada sin costo de hosting ni dominio para ti. Lista para compartir en tus redes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="planes">
+  <div class="wrap">
+    <span class="section-label">Planes</span>
+    <h2>Precios claros, sin sorpresas</h2>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Página Esencial</h3>
+        <div class="price">Bs. 250</div>
+        <ul>
+          <li>1 página con toda tu información</li>
+          <li>Botón directo a WhatsApp</li>
+          <li>Adaptada a celular</li>
+          <li>Entrega en 3-5 días</li>
+        </ul>
+        <a href="#contacto" class="btn-secondary" style="text-align:center;">Elegir este plan</a>
+      </div>
+      <div class="price-card featured">
+        <h3>Página Completa</h3>
+        <div class="price">Bs. 450</div>
+        <ul>
+          <li>Todo lo del plan Esencial</li>
+          <li>Galería de fotos o servicios</li>
+          <li>Mapa de ubicación integrado</li>
+          <li>Optimizada para aparecer en Google</li>
+        </ul>
+        <a href="#contacto" class="btn-primary" style="text-align:center;">Elegir este plan</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <h2>Hablemos de tu página</h2>
+    <p>Escríbeme directo por WhatsApp y en el mismo día te cuento cómo quedaría tu página.</p>
+    <a href="https://wa.me/59160600550" class="btn-primary">Escribir por WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">sitiosbo — Sitios web para negocios en Bolivia</div>
+</footer>
+
+</body>
+</html>
